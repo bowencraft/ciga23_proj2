@@ -9,9 +9,8 @@ public class FacingCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Quaternion y_rotation = transform.rotation;
-        y_rotation.w = Camera.main.transform.rotation.w;
+        float yRotation = Camera.main.transform.eulerAngles.y;
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, yRotation, transform.eulerAngles.z);
 
-        transform.rotation = y_rotation;
     }
 }
