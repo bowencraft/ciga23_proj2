@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using EFPController.Extras;
 using UnityEngine;
 
 public class InteractiveObject : MonoBehaviour
 {
-    public bool isInHighLight;
+    public bool isInHighLight = false;
 
     public int mainFeeling;
     public int minorFeeling;
@@ -28,11 +29,22 @@ public class InteractiveObject : MonoBehaviour
     {
         if (renderer != null)
         {
-            Debug.Log(renderer.GetColor("_AlbedoColor"));
+            //Debug.Log(renderer.GetColor("_AlbedoColor"));
             // 获取当前的 Material
 
             // 修改颜色属性   
-            renderer.SetColor("_AlbedoColor", newColor);
+            //renderer.SetColor("_AlbedoColor", newColor);
+        }
+
+        if (isInHighLight)
+        {
+
+            float yRotation = Camera.main.transform.eulerAngles.y;
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, yRotation, transform.eulerAngles.z);
+        } else
+        {
+            this.GetComponent<InteractReceiver>().enabled = false;
+
         }
     }
 
@@ -53,6 +65,13 @@ public class InteractiveObject : MonoBehaviour
         
     }
 
+    public void Highlight()
+    {
+        isInHighLight = true;
+        this.GetComponent<InteractReceiver>().enabled = true;
+        renderer.SetColor("_AlbedoColor", newColor);
+
+    }
 
 
 }
