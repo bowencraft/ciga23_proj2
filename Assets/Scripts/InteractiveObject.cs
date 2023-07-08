@@ -10,7 +10,7 @@ public class InteractiveObject : MonoBehaviour
     public int mainFeeling;
     public int minorFeeling;
 
-    public bool unlocked;
+    public bool unlocked = false;
 
     public Color newColor;
     private Material renderer;
@@ -58,7 +58,9 @@ public class InteractiveObject : MonoBehaviour
             mainFeeling = minorFeeling;
             minorFeeling = tempFeeling;
 
+            GameManager.Instance.StatusManager.GetComponent<StatusManager>().iconSwitch.SetTrigger("isSwitch");
             GameManager.Instance.StatusManager.GetComponent<StatusManager>().currentStatus = mainFeeling;
+
 
         }
 
@@ -69,9 +71,20 @@ public class InteractiveObject : MonoBehaviour
     {
         isInHighLight = true;
         this.GetComponent<InteractReceiver>().enabled = true;
-        renderer.SetColor("_AlbedoColor", newColor);
+        renderer.SetColor("_AlbedoColor", GameManager.Instance.StatusManager.GetComponent<StatusManager>().highlightColor);
 
     }
+
+
+    public void deHighlight()
+    {
+        isInHighLight = false;
+        this.GetComponent<InteractReceiver>().enabled = false;
+        renderer.SetColor("_AlbedoColor", GameManager.Instance.StatusManager.GetComponent<StatusManager>().normalColor);
+        
+
+    }
+
 
 
 }

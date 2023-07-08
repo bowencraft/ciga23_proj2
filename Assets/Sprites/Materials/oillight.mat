@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: oilLight
+  m_Name: oillight
   m_Shader: {fileID: 4800000, guid: c4ae631e7daaae74eb5266cfa7a61b79, type: 3}
   m_ValidKeywords:
   - _MK_ALBEDO_MAP
@@ -291,7 +291,7 @@ Material:
     - _Color: {r: 0.03773582, g: 0.03773582, b: 0.03773582, a: 1}
     - _DetailColor: {r: 1, g: 1, b: 1, a: 1}
     - _DissolveBorderColor: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0.1792453, g: 0.11857129, b: 0.09385013, a: 1}
+    - _EmissionColor: {r: 0.09019608, g: 0.05882353, b: 0.047058824, a: 1}
     - _GoochBrightColor: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 1}
     - _GoochDarkColor: {r: 0, g: 0, b: 0, a: 1}
     - _IridescenceColor: {r: 1, g: 1, b: 1, a: 0.5}

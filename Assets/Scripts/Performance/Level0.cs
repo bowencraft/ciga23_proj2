@@ -8,6 +8,9 @@ public class Level0 : MonoBehaviour
     public bool firstInteract = true;
     public GameObject initialLight;
     public GameObject largeLight;
+
+    public GameObject igniteCubes;
+
     public GameObject secondLight;
     public GameObject lamp;
     public GameObject oilLight;
@@ -28,14 +31,16 @@ public class Level0 : MonoBehaviour
         firstInteract = false;
         initialLight.SetActive(false);
         largeLight.SetActive(true);
+        igniteCubes.SetActive(true);
         StartCoroutine(turnOnSecondLight());
+
         lamp.SetActive(true);
     }
 
     private IEnumerator turnOnSecondLight()
     {
         // 延迟两秒
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
         // 在延迟结束后执行的行为
         secondLight.SetActive(true);
