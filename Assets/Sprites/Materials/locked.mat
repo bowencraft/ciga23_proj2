@@ -7,13 +7,15 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fire
+  m_Name: locked
   m_Shader: {fileID: 4800000, guid: c4ae631e7daaae74eb5266cfa7a61b79, type: 3}
   m_ValidKeywords:
   - _MK_ALBEDO_MAP
   - _MK_ARTISTIC_ANIMATION_STUTTER
   - _MK_DETAIL_BLEND_MIX
   - _MK_DISSOLVE_BORDER_COLOR
+  - _MK_EMISSION
+  - _MK_EMISSION_MAP
   - _MK_ENVIRONMENT_REFLECTIONS_ADVANCED
   - _MK_FRESNEL_HIGHLIGHTS
   - _MK_HEIGHT_MAP
@@ -40,7 +42,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AlbedoMap:
-        m_Texture: {fileID: 2800000, guid: 1eabef86835c14f869fe9e4010ff196e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9c9808a25677c4c44b5b6f522a486cd1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -80,7 +82,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 9c9808a25677c4c44b5b6f522a486cd1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _GoochBrightMap:
@@ -116,7 +118,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 1eabef86835c14f869fe9e4010ff196e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9c9808a25677c4c44b5b6f522a486cd1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -250,7 +252,7 @@ Material:
     - _OutlineNoise: 0
     - _OutlineSize: 30
     - _OutlineTab: 1
-    - _Parallax: 0.02
+    - _Parallax: 0.036
     - _ReceiveShadows: 1
     - _RenderFace: 0
     - _RenderPriority: 0
@@ -289,13 +291,13 @@ Material:
     - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
-    - _AlbedoColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 1}
-    - _Color: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 1}
+    - _AlbedoColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
+    - _Color: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
     - _DetailColor: {r: 1, g: 1, b: 1, a: 1}
     - _DissolveBorderColor: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _GoochBrightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GoochDarkColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 0.254717, g: 0.21747065, b: 0.21747065, a: 1}
+    - _GoochBrightColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 1}
+    - _GoochDarkColor: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
     - _IridescenceColor: {r: 1, g: 1, b: 1, a: 0.5}
     - _LightTransmissionColor: {r: 1, g: 0.65, b: 0, a: 1}
     - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}

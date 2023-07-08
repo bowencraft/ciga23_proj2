@@ -21,18 +21,19 @@ public class InteractiveObject : MonoBehaviour
 
         // 调整材质属性
         Debug.Log(renderer);
-        if (renderer != null)
-        {
-            // 获取当前的 Material
-
-            // 修改颜色属性
-            renderer.SetColor("_Albedo", newColor);
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (renderer != null)
+        {
+            Debug.Log(renderer.GetColor("_AlbedoColor"));
+            // 获取当前的 Material
+
+            // 修改颜色属性   
+            renderer.SetColor("_AlbedoColor", newColor);
+        }
     }
 
     public void Interact()

@@ -12486,7 +12486,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772284641}
   m_LocalRotation: {x: -0, y: -0.9955252, z: -0, w: 0.09449697}
-  m_LocalPosition: {x: -40.821, y: 1.421, z: -6.369}
+  m_LocalPosition: {x: -40.821, y: 1.384, z: -6.369}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12595,7 +12595,7 @@ MonoBehaviour:
   mainFeeling: 0
   minorFeeling: 1
   unlocked: 0
-  newColor: {r: 0, g: 0, b: 0, a: 0}
+  newColor: {r: 0.43529412, g: 0.43529412, b: 0.43529412, a: 0}
 --- !u!1 &1808190513
 GameObject:
   m_ObjectHideFlags: 0
