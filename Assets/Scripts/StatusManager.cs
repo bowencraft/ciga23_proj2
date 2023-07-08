@@ -12,7 +12,13 @@ public class StatusManager : MonoBehaviour
     public Color normalColor;
     public Color highlightColor;
 
+    public Color normalHDRColor;
+
+    public Color[] HDRList = new Color[15];
+
+
     public int currentStatus = 0;
+    public int lastframeStatus = 0;
 
     public Animator iconSwitch;
     public Sprite[] SpriteList = new Sprite[15];
@@ -35,6 +41,13 @@ public class StatusManager : MonoBehaviour
         //if (SpriteList[currentStatus] != null)
         //else
         //    textMeshPro.fontMaterial.mainTexture = null;
+
+        if (lastframeStatus != currentStatus)
+        {
+            updateStatus(currentStatus);
+        }
+
+        lastframeStatus = currentStatus;
 
     }
 
@@ -59,7 +72,8 @@ public class StatusManager : MonoBehaviour
                 io.Highlight();
             } else
             {
-                
+                io.deHighlight();
+
             }
         }
     }

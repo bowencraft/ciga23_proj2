@@ -21,7 +21,7 @@ public class InteractiveObject : MonoBehaviour
         renderer = GetComponent<Renderer>().material;
 
         // 调整材质属性
-        Debug.Log(renderer);
+        //Debug.Log(renderer);
     }
 
     // Update is called once per frame
@@ -53,10 +53,12 @@ public class InteractiveObject : MonoBehaviour
 
         if (isInHighLight)
         {
-            Debug.Log("Interacted");
+            //Debug.Log("Interacted");
             int tempFeeling = mainFeeling;
             mainFeeling = minorFeeling;
             minorFeeling = tempFeeling;
+
+            GetComponentInParent<Animator>().SetTrigger("touchToMove");
 
             GameManager.Instance.StatusManager.GetComponent<StatusManager>().iconSwitch.SetTrigger("isSwitch");
             GameManager.Instance.StatusManager.GetComponent<StatusManager>().currentStatus = mainFeeling;
@@ -70,8 +72,11 @@ public class InteractiveObject : MonoBehaviour
     public void Highlight()
     {
         isInHighLight = true;
+        Debug.Log("Highlighted" + this.transform.name);
+
         this.GetComponent<InteractReceiver>().enabled = true;
         renderer.SetColor("_AlbedoColor", GameManager.Instance.StatusManager.GetComponent<StatusManager>().highlightColor);
+        renderer.SetColor("_EmissionColor", GameManager.Instance.StatusManager.GetComponent<StatusManager>().HDRList[mainFeeling]);
 
     }
 
@@ -81,7 +86,8 @@ public class InteractiveObject : MonoBehaviour
         isInHighLight = false;
         this.GetComponent<InteractReceiver>().enabled = false;
         renderer.SetColor("_AlbedoColor", GameManager.Instance.StatusManager.GetComponent<StatusManager>().normalColor);
-        
+        renderer.SetColor("_EmissionColor", GameManager.Instance.StatusManager.GetComponent<StatusManager>().normalHDRColor);
+
 
     }
 

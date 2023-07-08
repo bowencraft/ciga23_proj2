@@ -15,15 +15,25 @@ MonoBehaviour:
   version: 1
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Wall
   m_Shader: {fileID: 4800000, guid: c4ae631e7daaae74eb5266cfa7a61b79, type: 3}
-  m_ShaderKeywords: _EMISSION _GLOSSYREFLECTIONS_OFF _MK_DETAIL_BLEND_MIX _MK_DETAIL_MAP
-    _MK_DETAIL_MAP_MIX _MK_ENVIRONMENT_REFLECTIONS_ADVANCED _MK_LIGHT_STYLE_SIMPLE
+  m_ValidKeywords:
+  - _MK_ARTISTIC_ANIMATION_STUTTER
+  - _MK_DETAIL_BLEND_MIX
+  - _MK_DETAIL_MAP
+  - _MK_ENVIRONMENT_REFLECTIONS_ADVANCED
+  m_InvalidKeywords:
+  - _EMISSION
+  - _GLOSSYREFLECTIONS_OFF
+  - _MK_DETAIL_MAP_MIX
+  - _MK_LIGHT_STYLE_SIMPLE
+  - _MK_RECEIVE_SHADOWS
+  - _RECEIVESHADOWS_ON
   m_LightmapFlags: 6
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -167,6 +177,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _AdvancedTab: 1
     - _AlbedoMapIntensity: 1
@@ -187,7 +198,7 @@ Material:
     - _CSBMode: 0
     - _ColorGrading: 0
     - _Contrast: 1
-    - _Cutoff: 0.5
+    - _Cutoff: 0.462
     - _DetailBlend: 0
     - _DetailMapBlendMode: 0
     - _DetailMix: 1
