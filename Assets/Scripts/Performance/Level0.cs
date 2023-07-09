@@ -107,7 +107,7 @@ public class Level0 : MonoBehaviour
     private IEnumerator OpenMagicDoor()
     {
         // 延迟两秒
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(2);
         // 在延迟结束后执行的行为
 

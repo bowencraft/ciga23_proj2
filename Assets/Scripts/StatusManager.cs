@@ -33,9 +33,16 @@ public class StatusManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        updateStatus(currentStatus);
+
+        StartCoroutine(InitializeStatus());
     }
 
+    private IEnumerator InitializeStatus()
+    {
+
+        yield return new WaitForSeconds(1f);
+        updateStatus(currentStatus);
+    }
     // Update is called once per frame
     void Update()
     {

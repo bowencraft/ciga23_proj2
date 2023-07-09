@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using EFPController.Extras;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,17 +10,21 @@ public class Level1 : MonoBehaviour
 
     public GameObject doorGate;
     public GameObject portal;
+    public GameObject xianglian;
 
     [ColorUsage(true, true)]
     public Color doorHighlightColor;
 
     public Material teleportMaterial;
 
+    public Material doorXianglianMaterial;
 
     // Start is called before the first frame update
     void Start()
     {
         doorHighlightColor = GameManager.Instance.StatusManager.GetComponent<StatusManager>().HDRList[6];
+
+
     }
 
     // Update is called once per frame
@@ -31,6 +37,8 @@ public class Level1 : MonoBehaviour
     {
         Debug.Log("xianglian being interacted");
         doorGate.GetComponent<Renderer>().material = teleportMaterial;
+        xianglian.GetComponent<Renderer>().material = doorXianglianMaterial;
+        doorGate.GetComponent<InteractReceiver>().enabled = true;
 
         //StartCoroutine(doorOpen());
     }

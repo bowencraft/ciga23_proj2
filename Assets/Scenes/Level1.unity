@@ -36555,8 +36555,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorGate: {fileID: 4423045620234655744}
   portal: {fileID: 346724867}
+  xianglian: {fileID: 1704510078}
   doorHighlightColor: {r: 1, g: 1, b: 1, a: 0}
   teleportMaterial: {fileID: 2100000, guid: 815ea53f4f2f449aa9d9963ecaf8530d, type: 2}
+  doorXianglianMaterial: {fileID: 2100000, guid: d56c07505da86415d89e1eedfa62ac38,
+    type: 2}
 --- !u!1 &851537894
 GameObject:
   m_ObjectHideFlags: 0
@@ -42737,8 +42740,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34965541c9fd4dda8ca2dae4e7718a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInHighLight: 1
-  unlocked: 1
+  isInHighLight: 0
+  unlocked: 0
   mainFeeling: 1
   minorFeeling: 4
   particleObject: {fileID: 113123899}
@@ -44935,8 +44938,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34965541c9fd4dda8ca2dae4e7718a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInHighLight: 1
-  unlocked: 1
+  isInHighLight: 0
+  unlocked: 0
   mainFeeling: 1
   minorFeeling: 3
   particleObject: {fileID: 11262020}
@@ -45083,7 +45086,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 101c49b8241174bc795e19dcfbe45f20, type: 2}
+  - {fileID: 2100000, guid: d1ec1bc645f8140d2a70bd2c73878128, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -60570,7 +60573,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4423045620234655744}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6000abc5e46e8e54d98dcc71bc84e82e, type: 3}
   m_Name: 
