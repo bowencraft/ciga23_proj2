@@ -86,12 +86,14 @@ public class Level0 : MonoBehaviour
         DoorGate.SetActive(false);
         Portal.SetActive(true);
         StartCoroutine(OpenMagicDoor());
+        
 
     }
     private IEnumerator OpenMagicDoor()
     {
         // 延迟两秒
         yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(1);
         // 在延迟结束后执行的行为
 
     }

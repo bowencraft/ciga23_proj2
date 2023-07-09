@@ -8801,8 +8801,8 @@ MonoBehaviour:
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
-  currentStatus: 3
-  lastframeStatus: 3
+  currentStatus: 0
+  lastframeStatus: 0
   iconSwitch: {fileID: 1310404287}
   SpriteList:
   - {fileID: 21300000, guid: 456fdf65f36894194b079ec5ea0fcaf4, type: 3}

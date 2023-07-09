@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/EFPController/Scenes/Demo.unity
-    guid: 83b8d422ccc66fa4f89a5a604fa4fb2c
+    path: Assets/Scenes/Scene_0.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 5c71d1943f820f74fa875e35d7ba39b9
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: bf493d0f927b15248a8c743239b617df,
       type: 2}
