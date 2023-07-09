@@ -11,6 +11,7 @@ public class StatusManager : MonoBehaviour
 
     public Color normalColor;
     public Color highlightColor;
+    public Color lockedColor;
 
     public Color normalHDRColor;
 
@@ -54,19 +55,18 @@ public class StatusManager : MonoBehaviour
     void updateStatus(int status)
     {
         currentStatus = status;
+        iconSwitch.SetTrigger("isSwitch");
 
         foreach (GameObject interactiveObject in InteractiveObjects)
         {
             InteractiveObject io = interactiveObject.GetComponent<InteractiveObject>();
             if (io.mainFeeling == status)
             {
-                io.unlocked = true;
                 io.Highlight();
             }
             else 
             if (io.minorFeeling == status)
             {
-                io.unlocked = true;
                 io.minorFeeling = io.mainFeeling;
                 io.mainFeeling = status;
                 io.Highlight();
@@ -74,6 +74,7 @@ public class StatusManager : MonoBehaviour
             {
                 io.deHighlight();
 
+                io.particleObject.SetActive(false);
             }
         }
     }

@@ -17,10 +17,20 @@ public class Level0 : MonoBehaviour
 
     public GameObject OilLightCubes;
     public GameObject MagicDoor;
+
+    public GameObject DoorGate;
+    public GameObject Portal;
     // Start is called before the first frame update
     void Start()
     {
-        
+        initialLight.SetActive(true);
+        largeLight.SetActive(false);
+        igniteCubes.SetActive(false);
+        secondLight.SetActive(false);
+        lamp.SetActive(false);
+        OilLightCubes.SetActive(false);
+        MagicDoor.SetActive(false);
+        Portal.SetActive(false);
     }
 
     // Update is called once per frame
@@ -66,7 +76,24 @@ public class Level0 : MonoBehaviour
 
         // 在延迟结束后执行的行为
         MagicDoor.SetActive(true);
-
+        largeLight.SetActive(false);
 
     }
+
+    public void interactOfDoor()
+    {
+        DoorGate.SetActive(false);
+        Portal.SetActive(true);
+        StartCoroutine(OpenMagicDoor());
+
+    }
+    private IEnumerator OpenMagicDoor()
+    {
+        // 延迟两秒
+        yield return new WaitForSeconds(2f);
+
+        // 在延迟结束后执行的行为
+
+    }
+
 }

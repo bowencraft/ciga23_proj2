@@ -6,19 +6,30 @@ using UnityEngine;
 public class InteractiveObject : MonoBehaviour
 {
     public bool isInHighLight = false;
+    public bool unlocked = false;
 
     public int mainFeeling;
     public int minorFeeling;
 
-    public bool unlocked = false;
+    public GameObject particleObject;
 
-    public Color newColor;
+    private Color targetNormalColor;
+    private Color targetHDRColor;
     private Material renderer;
+
+    public float duration = 2f;
+    private float elapsedTime = 0f;
 
     private void Start()
     {
         // 获取 Renderer 组件
         renderer = GetComponent<Renderer>().material;
+
+        targetNormalColor = GameManager.Instance.StatusManager.GetComponent<StatusManager>().normalColor;
+        targetHDRColor = GameManager.Instance.StatusManager.GetComponent<StatusManager>().normalHDRColor;
+
+        renderer.SetColor("_AlbedoColor", GameManager.Instance.StatusManager.GetComponent<StatusManager>().normalColor);
+        renderer.SetColor("_EmissionColor", GameManager.Instance.StatusManager.GetComponent<StatusManager>().normalHDRColor);
 
         // 调整材质属性
         //Debug.Log(renderer);
@@ -36,15 +47,43 @@ public class InteractiveObject : MonoBehaviour
             //renderer.SetColor("_AlbedoColor", newColor);
         }
 
-        if (isInHighLight)
+        if (unlocked)
         {
 
-            float yRotation = Camera.main.transform.eulerAngles.y;
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, yRotation, transform.eulerAngles.z);
-        } else
+            if (isInHighLight)
+            {
+
+                this.GetComponent<InteractReceiver>().enabled = true;
+
+                float yRotation = Camera.main.transform.eulerAngles.y;
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, yRotation, transform.eulerAngles.z);
+            } else
+            {
+
+                this.GetComponent<InteractReceiver>().enabled = false;
+            }
+        }
+        else
         {
             this.GetComponent<InteractReceiver>().enabled = false;
 
+
+            targetNormalColor = GameManager.Instance.StatusManager.GetComponent<StatusManager>().lockedColor;
+            renderer.SetColor("_AlbedoColor", GameManager.Instance.StatusManager.GetComponent<StatusManager>().lockedColor);
+
+        }
+
+        if (elapsedTime < duration)
+        {
+            // 使用插值函数平滑改变颜色值
+            Color currentColor = renderer.GetColor("_AlbedoColor");
+            renderer.SetColor("_AlbedoColor", Color.Lerp(currentColor, targetNormalColor, elapsedTime / duration));
+
+            currentColor = renderer.GetColor("_EmissionColor");
+            renderer.SetColor("_EmissionColor", Color.Lerp(currentColor, targetHDRColor, elapsedTime / duration));
+
+            // 增加已经过去的时间
+            elapsedTime += Time.deltaTime;
         }
     }
 
@@ -60,8 +99,10 @@ public class InteractiveObject : MonoBehaviour
 
             GetComponentInParent<Animator>().SetTrigger("touchToMove");
 
-            GameManager.Instance.StatusManager.GetComponent<StatusManager>().iconSwitch.SetTrigger("isSwitch");
+            //GameManager.Instance.StatusManager.GetComponent<StatusManager>().iconSwitch.SetTrigger("isSwitch");
             GameManager.Instance.StatusManager.GetComponent<StatusManager>().currentStatus = mainFeeling;
+
+            particleObject.SetActive(true);
 
 
         }
@@ -72,11 +113,18 @@ public class InteractiveObject : MonoBehaviour
     public void Highlight()
     {
         isInHighLight = true;
-        Debug.Log("Highlighted" + this.transform.name);
+        unlocked = true;
+        //Debug.Log("Highlighted" + this.transform.name);
 
-        this.GetComponent<InteractReceiver>().enabled = true;
-        renderer.SetColor("_AlbedoColor", GameManager.Instance.StatusManager.GetComponent<StatusManager>().highlightColor);
-        renderer.SetColor("_EmissionColor", GameManager.Instance.StatusManager.GetComponent<StatusManager>().HDRList[mainFeeling]);
+        //this.GetComponent<InteractReceiver>().enabled = true;
+
+        targetNormalColor = GameManager.Instance.StatusManager.GetComponent<StatusManager>().highlightColor;
+        targetHDRColor = GameManager.Instance.StatusManager.GetComponent<StatusManager>().HDRList[mainFeeling];
+
+        elapsedTime = 0f;
+
+        //renderer.SetColor("_AlbedoColor", GameManager.Instance.StatusManager.GetComponent<StatusManager>().highlightColor);
+        //renderer.SetColor("_EmissionColor", GameManager.Instance.StatusManager.GetComponent<StatusManager>().HDRList[mainFeeling]);
 
     }
 
@@ -84,9 +132,15 @@ public class InteractiveObject : MonoBehaviour
     public void deHighlight()
     {
         isInHighLight = false;
-        this.GetComponent<InteractReceiver>().enabled = false;
-        renderer.SetColor("_AlbedoColor", GameManager.Instance.StatusManager.GetComponent<StatusManager>().normalColor);
-        renderer.SetColor("_EmissionColor", GameManager.Instance.StatusManager.GetComponent<StatusManager>().normalHDRColor);
+        //this.GetComponent<InteractReceiver>().enabled = false;
+
+        targetNormalColor = GameManager.Instance.StatusManager.GetComponent<StatusManager>().normalColor;
+        targetHDRColor = GameManager.Instance.StatusManager.GetComponent<StatusManager>().normalHDRColor;
+
+        elapsedTime = 0f;
+
+        //renderer.SetColor("_AlbedoColor", GameManager.Instance.StatusManager.GetComponent<StatusManager>().normalColor);
+        //renderer.SetColor("_EmissionColor", GameManager.Instance.StatusManager.GetComponent<StatusManager>().normalHDRColor);
 
 
     }
