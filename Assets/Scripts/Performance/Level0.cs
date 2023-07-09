@@ -7,6 +7,9 @@ public class Level0 : MonoBehaviour
 {
 
     public bool firstInteract = true;
+
+    public GameObject Torch;
+
     public GameObject initialLight;
     public GameObject largeLight;
 
@@ -32,12 +35,24 @@ public class Level0 : MonoBehaviour
         OilLightCubes.SetActive(false);
         MagicDoor.SetActive(false);
         Portal.SetActive(false);
+
+        StartCoroutine(enableTorch());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    private IEnumerator enableTorch()
+    {
+        // 延迟两秒
+        yield return new WaitForSeconds(2f);
+
+        // 在延迟结束后执行的行为
+        Torch.GetComponent<InteractiveObject>().isInHighLight = true;
+
     }
 
     public void igniteTorch()
