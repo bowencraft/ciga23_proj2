@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class SubtitleManager : MonoBehaviour
 {
-    GameObject subtitle;
+    public GameObject subtitle;
     public string content;
+
+    public TextMeshProUGUI textMeshProUI;
 
     // Start is called before the first frame update
     void Start()
@@ -16,5 +19,8 @@ public class SubtitleManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        textMeshProUI = subtitle.GetComponent<TextMeshProUGUI>();
+        textMeshProUI.text = content;
+        
     }
 }

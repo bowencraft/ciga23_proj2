@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 1c0cc9055d17a433597394bd1183cf9e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Crush Font
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 77db9078002c6724a862f61478b75b5d, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
