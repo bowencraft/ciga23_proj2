@@ -108,7 +108,7 @@ public class Level0 : MonoBehaviour
     {
         // 延迟两秒
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
         // 在延迟结束后执行的行为
 
     }

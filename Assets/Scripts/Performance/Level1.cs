@@ -7,6 +7,7 @@ public class Level1 : MonoBehaviour
 {
 
     public GameObject doorGate;
+    public GameObject portal;
 
     [ColorUsage(true, true)]
     public Color doorHighlightColor;
@@ -29,27 +30,25 @@ public class Level1 : MonoBehaviour
     public void interactxianglian()
     {
         Debug.Log("xianglian being interacted");
-        doorGate.GetComponent<Renderer>().material.SetColor("_EmissionColor", doorHighlightColor);
+        doorGate.GetComponent<Renderer>().material = teleportMaterial;
 
         //StartCoroutine(doorOpen());
     }
 
     public void openDoor()
     {
-        doorGate.GetComponent<Renderer>().material = teleportMaterial;
-
+        doorGate.SetActive(false);
+        portal.SetActive(true);
         StartCoroutine(SceneChange());
     }
 
 
-    private IEnumerator SceneChange()
+    private IEnumerator DoorChange()
     {
 
 
         // 延迟两秒
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(2);
-
 
         // 在延迟结束后执行的行为
         //secondLight.SetActive(true);
@@ -58,5 +57,20 @@ public class Level1 : MonoBehaviour
 
     }
 
+    private IEnumerator SceneChange()
+    {
+
+
+        // 延迟两秒
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(3);
+
+
+        // 在延迟结束后执行的行为
+        //secondLight.SetActive(true);
+
+        //oilLight.GetComponent<InteractiveObject>().Highlight();
+
+    }
 
 }
