@@ -13,8 +13,10 @@ public class StatusManager : MonoBehaviour
     public Color highlightColor;
     public Color lockedColor;
 
+    [ColorUsage(true, true)]
     public Color normalHDRColor;
 
+    [ColorUsage(true, true)]
     public Color[] HDRList = new Color[15];
 
 
@@ -31,7 +33,7 @@ public class StatusManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        updateStatus(currentStatus);
     }
 
     // Update is called once per frame

@@ -31,6 +31,10 @@ public class InteractiveObject : MonoBehaviour
         renderer.SetColor("_AlbedoColor", GameManager.Instance.StatusManager.GetComponent<StatusManager>().normalColor);
         renderer.SetColor("_EmissionColor", GameManager.Instance.StatusManager.GetComponent<StatusManager>().normalHDRColor);
 
+        if (!isInHighLight)
+        {
+            particleObject.SetActive(false);
+        }
         // 调整材质属性
         //Debug.Log(renderer);
     }
@@ -138,6 +142,8 @@ public class InteractiveObject : MonoBehaviour
         targetHDRColor = GameManager.Instance.StatusManager.GetComponent<StatusManager>().normalHDRColor;
 
         elapsedTime = 0f;
+
+        particleObject.SetActive(false);
 
         //renderer.SetColor("_AlbedoColor", GameManager.Instance.StatusManager.GetComponent<StatusManager>().normalColor);
         //renderer.SetColor("_EmissionColor", GameManager.Instance.StatusManager.GetComponent<StatusManager>().normalHDRColor);
