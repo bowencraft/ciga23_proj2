@@ -175,10 +175,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInHighLight: 1
+  unlocked: 0
   mainFeeling: 1
   minorFeeling: 1
-  unlocked: 0
-  newColor: {r: 0.43529412, g: 0.43529412, b: 0.43529412, a: 0}
+  particleObject: {fileID: 0}
+  duration: 2
 --- !u!135 &8039989566692247788
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -217,7 +218,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8039989567365120632}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -41.343643, y: 1.6766471, z: -4.71701}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

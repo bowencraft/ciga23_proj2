@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Level0 : MonoBehaviour
 {
@@ -91,7 +92,6 @@ public class Level0 : MonoBehaviour
     {
         // 延迟两秒
         yield return new WaitForSeconds(2f);
-
         // 在延迟结束后执行的行为
 
     }
